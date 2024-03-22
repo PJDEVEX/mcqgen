@@ -1,7 +1,7 @@
 import os
-import pyPDF2
+import PyPDF2
 import json
-import traceback
+import traceback as tb
 
 def read_file(file):
     """
@@ -48,6 +48,6 @@ def get_table_data(quiz_str):
         return quiz_table_data
     
     except Exception as e:
-        traceback.print_exception(type(e), e, e.__traceback__)
+        tb.print_exception(type(e), e, e.__traceback__)
         return False
     
