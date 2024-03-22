@@ -42,9 +42,41 @@ quiz_generation_prompt = PromptTemplate(
     template=TEMPLATE)
 
 # LLMChain for quiz generation
-quiz_generation_chain = LLMChain(
+quize_chain = LLMChain(
     llm=llm,
     prompt_template=quiz_generation_prompt,
     output_key="quiz",
     verbose=True)
 
+# Template 2 for the prompt
+TEMPLATE2="""
+Your are an expert English grammerian. Give a multiple choice quiz for {subject} students. \
+    you need to evaluate the complexity of the question and give a complete analysis of the quiz. 
+    Only use at max 50 words for the complexity analysis. \
+    If the questions are not in par with the student's cognitive and analytical abilities of the student, \
+    Update the questions which needs to be changed and change the tone such that it perfectly fits the student's cognitive and analytical abilities. \
+    Quiz_MCQs: 
+    {quiz}
+
+    check from an expert English writer of the above quiz:
+    """
+
+# Question evaluation prompt
+quiz_evaluation_prompt = PromptTemplate(
+    input_variables=["subject", "quiz"],
+    template=TEMPLATE2
+)
+
+# Quiz evaluation chain
+review_chain = LLMChain(llm=llm,
+                        prompt=quiz_evaluation_prompt,
+                        output_key="review",
+                        verbose=True)
+
+# Sequential chain for quiz generation and evaluation
+generate_evaluate_chain = SequentialChain(  
+    chains=[quize_chain, review_chain],
+    input_variables=["text", "number", "subject", "tone", "response_json"],
+    output_variables=["quiz", "review"],
+    verbose=True
+)
