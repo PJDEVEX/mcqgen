@@ -6,7 +6,7 @@
                    "c":"choice here",
                    "d":"choice here"
                    },
-        "correct":"correct_answer",
+        "correct":"correct_answer"
     },
     "2": {
         "mcq":"multiple choice question",
@@ -15,7 +15,7 @@
                    "c":"choice here",
                    "d":"choice here"
                    },
-        "correct":"correct_answer",
+        "correct":"correct_answer"
     },
     "3": {
         "mcq":"multiple choice question",
@@ -24,7 +24,7 @@
                    "c":"choice here",
                    "d":"choice here"
                    },
-        "correct":"correct_answer",
+        "correct":"correct_answer"
     },
     "4": {
         "mcq": "multiple choice question",
@@ -43,6 +43,6 @@
                    "c":"choice here",
                    "d":"choice here"
                    },
-        "correct":"correct_answer",
+        "correct":"correct_answer"
     }
 }
