@@ -31,20 +31,17 @@ Make sure questions are not repeated and check all question to be confirming to 
 Make sure to format your resepomse like RESPONSE_JSON below and use it as a guide.  \
 Ensure to make {number} MCQs
 ###RESPONSE_JSON
+
 {response_json}
 """
 
 # Prompt Template for quiz generation
 quiz_generation_prompt = PromptTemplate(
-    input_variables=["text","number","subject","tone"],
+    input_variables=["text","number","subject","tone", "response_json"],
     template=TEMPLATE)
 
 # LLMChain for quiz generation
-quize_chain = LLMChain(
-    llm=llm,
-    prompt_template=quiz_generation_prompt,
-    output_key="quiz",
-    verbose=True)
+quize_chain = LLMChain(llm=llm, prompt=quiz_generation_prompt, output_key="quiz", verbose=True)
 
 # Template 2 for the prompt
 TEMPLATE2="""

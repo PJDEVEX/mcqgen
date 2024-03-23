@@ -5,6 +5,6 @@ setup(
     version='0.0.1',
     author='piyankara Jayadewa (PJ)',
     author_email='piyankara.jayadewa@gmail.com',
-    install_requires=["openai","langchain","nltk","numpy","streamlit","python-dotenv","pyPDF2"],
+    install_requires=["openai","langchain","nltk","numpy","streamlit","python-dotenv","pdfreader"],
     packages=find_packages(),
 )
