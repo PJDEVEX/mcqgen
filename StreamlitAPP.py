@@ -70,9 +70,13 @@ with st.form("user_input"):
                             df=pd.DataFrame(table_data)
                             df.index=df.index+1
                             st.table(df)
+            
                             # Display the review in a text box as well
                             st.text_area(label="Review", value=response["review"])
                         else:
                             st.error("Error in the table data")
                 else:
                     st.write(response)
+if "df" in locals():
+    # Add a download button
+    st.download_button("Download", df.to_csv(), file_name="quiz.csv", mime="text/csv")
