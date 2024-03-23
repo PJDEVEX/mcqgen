@@ -10,7 +10,7 @@ from langchain.callbacks import get_openai_callback
 from src.mcqgenerator.mcqgenerator import generate_evaluate_chain
 
 # loading json file
-with open('/home/pjlinux/projects/mcqgen/response.json', "r") as file:
+with open('./response.json', "r") as file:
     RESPONSE_JSON = json.load(file)
 
 # Creating a title for the app
